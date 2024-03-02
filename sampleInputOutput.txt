@@ -1,4 +1,4 @@
-This is the output AST to the testcases mentioned in test.txt.
+This is the output AST to the testcases mentioned in tests.txt.
 
 PROGRAM : 
     
@@ -6,7 +6,7 @@ PROGRAM :
     
             QUERY: 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : parent
                     TERM(LPAREN)
                         TERM(VARIABLE) : John
@@ -19,7 +19,7 @@ PROGRAM :
     
             FACT : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : parent
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -32,7 +32,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : mother
                     TERM(LPAREN)
                         TERM(CONSTANT) : as
@@ -41,7 +41,7 @@ PROGRAM :
                     TERM(RPAREN)
                 TERM(ASSIGN)
                 TERM(NOT)
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : wife
                     TERM(LPAREN)
                         TERM(CONSTANT) : hello
@@ -52,7 +52,7 @@ PROGRAM :
     
             FACT : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : parent
                     TERM(LPAREN)
                         TERM(CONSTANT) : adam
@@ -65,7 +65,7 @@ PROGRAM :
     
             FACT : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : parent
                     TERM(LPAREN)
                         TERM(CONSTANT) : eve
@@ -78,7 +78,7 @@ PROGRAM :
     
             FACT : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : parent
                     TERM(LPAREN)
                         TERM(CONSTANT) : john
@@ -91,7 +91,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : ancestor
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -99,7 +99,7 @@ PROGRAM :
                         TERM(VARIABLE) : Y
                     TERM(RPAREN)
             TERM(ASSIGN)
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : parent
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -112,7 +112,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : ancestor
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -120,7 +120,7 @@ PROGRAM :
                         TERM(VARIABLE) : Y
                     TERM(RPAREN)
             TERM(ASSIGN)
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : parent
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -128,7 +128,7 @@ PROGRAM :
                         TERM(VARIABLE) : Z
                     TERM(RPAREN)
             TERM(COMMA)
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : ancestor
                     TERM(LPAREN)
                         TERM(VARIABLE) : Z
@@ -141,7 +141,7 @@ PROGRAM :
     
             QUERY: 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : ancestor
                     TERM(LPAREN)
                         TERM(CONSTANT) : adam
@@ -154,7 +154,7 @@ PROGRAM :
     
             QUERY: 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : ancestor
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -167,7 +167,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : likes
                     TERM(LPAREN)
                         TERM(CONSTANT) : john
@@ -182,7 +182,7 @@ PROGRAM :
     
             FACT : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : likes
                     TERM(LPAREN)
                         TERM(CONSTANT) : john
@@ -195,7 +195,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : sum
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -217,7 +217,7 @@ PROGRAM :
     
             FACT : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : likes
                     TERM(LPAREN)
                         TERM(CONSTANT) : john
@@ -230,7 +230,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : likes
                     TERM(LPAREN)
                         TERM(CONSTANT) : x
@@ -245,7 +245,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : sum
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -267,7 +267,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : product
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -289,7 +289,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : difference
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -311,7 +311,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : quotient
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -333,7 +333,7 @@ PROGRAM :
     
             QUERY: 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : ancestor
                     TERM(LPAREN)
                         TERM(CONSTANT) : adam
@@ -346,7 +346,7 @@ PROGRAM :
     
             QUERY: 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : sum
                     TERM(LPAREN)
                         TERM(NUMBER) : 5
@@ -361,7 +361,7 @@ PROGRAM :
     
             QUERY: 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : product
                     TERM(LPAREN)
                         TERM(NUMBER) : 3
@@ -371,7 +371,7 @@ PROGRAM :
                         TERM(VARIABLE) : Result
                     TERM(RPAREN)
             TERM(COMMA)
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : difference
                     TERM(LPAREN)
                         TERM(VARIABLE) : Result
@@ -386,7 +386,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : notlikes
                     TERM(LPAREN)
                         TERM(CONSTANT) : john
@@ -395,7 +395,7 @@ PROGRAM :
                     TERM(RPAREN)
                 TERM(ASSIGN)
                 TERM(NOT)
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : likes
                     TERM(LPAREN)
                         TERM(CONSTANT) : john
@@ -408,7 +408,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : greater_than
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -426,7 +426,7 @@ PROGRAM :
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : smaller_than_or_equal
                     TERM(LPAREN)
                         TERM(VARIABLE) : X
@@ -439,11 +439,12 @@ PROGRAM :
                         TERM(OP) : =<
                         TERM(VARIABLE) : Y
             TERM(PERIOD)
+    
     CLAUSE : 
     
             RULE : 
             
-                PREDICATE : 
+                ATOMIC FORMULA : 
                     TERM(CONSTANT) : isTrue
                     TERM(LPAREN)
                         TERM(VARIABLE) : X

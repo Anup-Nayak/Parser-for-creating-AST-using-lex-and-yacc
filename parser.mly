@@ -61,7 +61,7 @@ body:
   | OFCOURSE {[ "TERM(OFCOURSE)"]}
 
 predicate:
-  | term LPAREN arguments RPAREN {["indentForward"] @ ["PREDICATE : "] @ ["indentForward"]  @ [ $1]  @ [ "TERM(LPAREN)"] @  ["indentForward"] @ $3 @["indentBackwards"]@[ "TERM(RPAREN)"] @["indentBackwards"] @["indentBackwards"]}
+  | term LPAREN arguments RPAREN {["indentForward"] @ ["ATOMIC FORMULA : "] @ ["indentForward"]  @ [ $1]  @ [ "TERM(LPAREN)"] @  ["indentForward"] @ $3 @["indentBackwards"]@[ "TERM(RPAREN)"] @["indentBackwards"] @["indentBackwards"]}
 
 arguments:
   | {[""]}

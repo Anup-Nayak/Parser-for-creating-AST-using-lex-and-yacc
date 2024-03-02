@@ -36,3 +36,5 @@ notlikes(john, X) :- \+ likes(john, X).
 
 greater_than(X, Y) :- X > Y.
 smaller_than_or_equal(X, Y) :- X =< Y.
+
+isTrue(X) :- fail.
