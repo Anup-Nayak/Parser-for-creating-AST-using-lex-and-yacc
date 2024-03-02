@@ -12,7 +12,13 @@ rule token = parse
         { CONSTANT(str) }
     | '(' { LPAREN }
     | ')' { RPAREN }
+    | ']' {RSQ}
+    | '[' {LSQ}
+    | "not" {NOT}
+    | '|' {OR}
     | ',' { COMMA }
     | [':']['-'] { ASSIGN }
+    | ['?']['-'] { QUERY }
     | '-' { DASH }
     | '.' { PERIOD }
+    | eof {EOF}

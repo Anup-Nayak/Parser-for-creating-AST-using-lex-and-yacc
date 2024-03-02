@@ -2,7 +2,7 @@
 
 %token <string> IDENTIFIER
 %token <string> CONSTANT
-%token LPAREN RPAREN COMMA ASSIGN DASH PERIOD
+%token LPAREN RPAREN NOT OR COMMA ASSIGN DASH PERIOD RSQ LSQ EOF QUERY
 
 
 %start main
@@ -17,14 +17,25 @@ main:
   | query { $1 }
   
 fact:
-  | term LPAREN arguments RPAREN PERIOD {["FACT :"]@["    "^$1]@["    "^"TERM(LPAREN)"]@ $3 @["    "^"TERM(RPAREN)"]@["    "^"TERM(PERIOD)"]}
-  | term ASSIGN term {["DUMMY :"]@["    "^$1]@["    "^"TERM(ASSIGN)"]@["    "^$3]}
+  | predicate PERIOD { ["FACT : "]@ $1 @ ["    "^"TERM(PERIOD)"]}
+  | {[""]}
 
 rule:
+  | predicate ASSIGN body PERIOD {["RULE : "]@ $1  @ ["    "^"TERM(ASSIGN)"]@ $3 @["    "^"TERM(PERIOD)"]}
+  | term LPAREN arguments RPAREN PERIOD {["FACT :"]@["    "^$1]@["    "^"TERM(LPAREN)"]@ $3 @["    "^"TERM(RPAREN)"]@["    "^"TERM(PERIOD)"]}
+  | term ASSIGN term {["DUMMY :"]@["    "^$1]@["    "^"TERM(ASSIGN)"]@["    "^$3]}
   | {[""]}
 
 query:
   | {[""]}
+  | QUERY predicate PERIOD { ["QUERY: " ] @ $2 @ ["    "^"TERM(PERIOD)"]}
+
+body:
+  | predicate {$1}
+  | predicate COMMA body { $1 @ ["    "^"TERM(COMMA)"] @ $3}
+
+predicate:
+  | term LPAREN arguments RPAREN {["PREDICATE : "]@["\t"]@["    "^$1]@["    "^"TERM(LPAREN)"]@ $3 @["    "^"TERM(RPAREN)"]}
 
 arguments:
   | {[""]}
