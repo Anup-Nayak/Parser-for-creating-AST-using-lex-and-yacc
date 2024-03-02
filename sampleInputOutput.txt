@@ -439,3 +439,15 @@ PROGRAM :
                         TERM(OP) : =<
                         TERM(VARIABLE) : Y
             TERM(PERIOD)
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : isTrue
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                TERM(FAIL)
+            TERM(PERIOD)
