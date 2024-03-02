@@ -13,6 +13,7 @@ type token =
   | LSQ
   | EOF
   | QUERY
+  | OFCOURSE
 
 val main :
   (Lexing.lexbuf  -> token) -> Lexing.lexbuf -> string list

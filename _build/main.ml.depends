@@ -1,1 +1,1 @@
-main.ml: Lexer Lexing List Parser Printf
+main.ml: Lexer Lexing Parser Printf

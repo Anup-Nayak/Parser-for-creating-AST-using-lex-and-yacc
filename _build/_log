@@ -9,7 +9,7 @@
 /usr/bin/ocamlyacc parser.mly
 + /usr/bin/ocamlyacc parser.mly
 5 rules never reduced
-24 shift/reduce conflicts, 10 reduce/reduce conflicts.
+24 shift/reduce conflicts, 9 reduce/reduce conflicts.
 # Target: parser.mli.depends, tags: { extension:mli, file:parser.mli, ocaml, ocamldep, quiet }
 /usr/bin/ocamldep.opt -modules parser.mli > parser.mli.depends # cached
 # Target: parser.cmi, tags: { byte, compile, extension:mli, file:parser.mli, interf, ocaml, quiet }

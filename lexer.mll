@@ -1,4 +1,3 @@
-
 {
   open Parser
 }
@@ -6,15 +5,16 @@
 rule token = parse
      [' ' '\t' '\n']
        { token lexbuf }
-    | ['A'-'Z']+['a'-'z']* as str
+    | ['A'-'Z']+['a'-'z' 'A'-'Z' '0'-'9']* as str
         { IDENTIFIER(str) }
-    | ['a'-'z']+ as str
+    | ['a'-'z']+['a'-'z' 'A'-'Z' '0'-'9']* as str
         { CONSTANT(str) }
     | '(' { LPAREN }
     | ')' { RPAREN }
     | ']' {RSQ}
     | '[' {LSQ}
-    | "not" {NOT}
+    | '~' {OFCOURSE} (* DC: using ~ as ofcourse instead of ! since in stdin !. gets interpreted as last input stream*)
+    | ['\\']['+'] {NOT}
     | '|' {OR}
     | ',' { COMMA }
     | [':']['-'] { ASSIGN }

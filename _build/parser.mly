@@ -1,8 +1,6 @@
-
-
 %token <string> IDENTIFIER
 %token <string> CONSTANT
-%token LPAREN RPAREN NOT OR COMMA ASSIGN DASH PERIOD RSQ LSQ EOF QUERY
+%token LPAREN RPAREN NOT OR COMMA ASSIGN DASH PERIOD RSQ LSQ EOF QUERY OFCOURSE
 
 
 %start main
@@ -11,43 +9,47 @@
 %%
 
 main:
-  | {[""]}
-  | program {["PROGRAM : "]  @["\t"] @ $1}
+  | EOF {["END of FILE"]}
+  | program {["PROGRAM : "]  @ ["indentForward"] @ $1}
 
 program:
   | {[""]}
-  | clause {  $1}
+  | clause { $1 }
   | clause program { $1 @ $2 }
 
 clause:
   | {[""]}
-  | fact { ["CLAUSE : "]@$1 @["\t"]} 
-  | rule { ["CLAUSE : "]@$1 @["\t"]}
-  | query { ["CLAUSE : "]@$1 @["\t"]}
+  | fact { ["CLAUSE : "] @["indentForward"] @$1 @["indentBackwards"]} 
+  | rule { ["CLAUSE : "] @["indentForward"] @$1 @["indentBackwards"]}
+  | query { ["CLAUSE : "] @["indentForward"] @$1 @["indentBackwards"]}
   
 fact:
   | {[""]}
-  | predicate PERIOD { ["FACT : "]@ $1 @ [ "TERM(PERIOD)"]}
+  | predicate PERIOD {["indentForward"] @ ["FACT : "] @ $1 @ [ "TERM(PERIOD)"]@["indentBackwards"]}
 
 rule:
   | {[""]}
-  | predicate ASSIGN body PERIOD {["RULE : "]@ $1  @ [ "TERM(ASSIGN)"]@ $3 @[ "TERM(PERIOD)"]}
+  | predicate ASSIGN OFCOURSE {["indentForward"] @["RULE : "] @ $1  @ ["indentForward"] @ [ "TERM(ASSIGN)"] @ [ "TERM(OFCOURSE)"]@["indentBackwards"]@["indentBackwards"]}
+  | predicate ASSIGN body PERIOD {["indentForward"] @["RULE : "] @ $1  @ [ "TERM(ASSIGN)"]@ $3 @[ "TERM(PERIOD)"]@["indentBackwards"]}
+  | predicate ASSIGN NOT body PERIOD {["indentForward"] @["RULE : "] @ $1 @ ["indentForward"] @ [ "TERM(ASSIGN)"]@ [ "TERM(NOT)"]@["indentBackwards"]@ $4 @[ "TERM(PERIOD)"]@["indentBackwards"]}
+
 
 query:
   | {[""]}
-  | QUERY predicate PERIOD { ["QUERY: " ] @ $2 @ [ "TERM(PERIOD)"]}
+  | QUERY predicate PERIOD { ["indentForward"] @["QUERY: " ] @ $2 @ [ "TERM(PERIOD)"]@["indentBackwards"]}
 
 body:
   | predicate {$1}
   | predicate COMMA body { $1 @ [ "TERM(COMMA)"] @ $3}
+  | OFCOURSE {[ "TERM(OFCOURSE)"]}
 
 predicate:
-  | term LPAREN arguments RPAREN {["PREDICATE : "]@[ $1]@[ "TERM(LPAREN)"]@ $3 @[ "TERM(RPAREN)"]}
+  | term LPAREN arguments RPAREN {["indentForward"] @ ["PREDICATE : "] @ ["indentForward"]  @ [ $1]  @ [ "TERM(LPAREN)"] @  ["indentForward"] @ $3 @["indentBackwards"]@[ "TERM(RPAREN)"] @["indentBackwards"] @["indentBackwards"]}
 
 arguments:
   | {[""]}
   | term { [$1] }
-  | term COMMA arguments {[$1]@ $3}
+  | term COMMA arguments {[$1] @ ["TERM(COMMA)"] @ $3}
 
 term:
   | IDENTIFIER {"TERM(VARIABLE) : "^$1}
