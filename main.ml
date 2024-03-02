@@ -12,6 +12,12 @@ let print_results results =
   print_with_indent 0 results
 
 let main =
-  let lexbuf = Lexing.from_channel stdin in
-  let results = Parser.main Lexer.token lexbuf in
-  print_results results
+  let channel = open_in "test.txt" in
+  try
+    let lexbuf = Lexing.from_channel channel in
+    let results = Parser.main Lexer.token lexbuf in
+    close_in channel;  (* Close the file after reading *)
+    print_results results
+  with
+  | Sys_error err -> 
+      Printf.printf "Error: %s\n" err
