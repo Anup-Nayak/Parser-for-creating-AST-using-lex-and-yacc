@@ -1,3 +1,21 @@
 ?-parent(John,Mary). 
 parent(X,Y).
 mother(as,yuck) :- \+ wife(hello) . 
+
+parent(adam, john).
+parent(eve, john).
+parent(john, alice).
+
+ancestor(X, Y) :- parent(X, Y).
+ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
+
+?- ancestor(adam, alice).
+
+?- ancestor(X, alice).
+
+likes(john, pizza) :- ~.
+likes(john, spaghetti).
+
+
+sum(X, Y, Z) :- Z is pi + Y.
+

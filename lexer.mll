@@ -5,6 +5,9 @@
 rule token = parse
      [' ' '\t' '\n']
        { token lexbuf }
+    | "is" {IS}
+    | "true" {TRUE}
+    | "false" {FALSE}
     | ['A'-'Z']+['a'-'z' 'A'-'Z' '0'-'9']* as str
         { IDENTIFIER(str) }
     | ['a'-'z']+['a'-'z' 'A'-'Z' '0'-'9']* as str
@@ -19,6 +22,7 @@ rule token = parse
     | ',' { COMMA }
     | [':']['-'] { ASSIGN }
     | ['?']['-'] { QUERY }
-    | '-' { DASH }
     | '.' { PERIOD }
     | eof {EOF}
+    | ['+']+ as op { OP(op) }
+    | ['0'-'9']+ as num { NUMBER(num) }
