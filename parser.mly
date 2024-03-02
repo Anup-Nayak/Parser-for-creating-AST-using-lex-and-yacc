@@ -2,7 +2,7 @@
 %token <string> CONSTANT
 %token <string> OP
 %token <string> NUMBER
-%token LPAREN RPAREN NOT OR COMMA ASSIGN DASH PERIOD RSQ LSQ EOF QUERY OFCOURSE TRUE FALSE IS
+%token LPAREN RPAREN NOT OR COMMA ASSIGN DASH PERIOD RSQ LSQ EOF QUERY OFCOURSE TRUE FALSE FAIL IS
 
 
 %start main
@@ -31,21 +31,23 @@ fact:
 
 rule:
   | {[""]}
-  | predicate ASSIGN OFCOURSE {["indentForward"] @["RULE : "]@["\t"] @ $1  @ ["indentForward"] @ [ "TERM(ASSIGN)"] @ [ "TERM(OFCOURSE)"]@["indentBackwards"]@["indentBackwards"]}
+  | predicate ASSIGN OFCOURSE PERIOD {["indentForward"] @["RULE : "]@["\t"] @ $1  @ ["indentForward"] @ [ "TERM(ASSIGN)"] @ [ "TERM(OFCOURSE)"]@["indentBackwards"]@[ "TERM(PERIOD)"]@["indentBackwards"]}
   | predicate ASSIGN body PERIOD {["indentForward"] @["RULE : "] @["\t"]@ $1  @ [ "TERM(ASSIGN)"]@ $3 @[ "TERM(PERIOD)"]@["indentBackwards"]}
   | predicate ASSIGN NOT body PERIOD {["indentForward"] @["RULE : "]@["\t"] @ $1 @ ["indentForward"] @ [ "TERM(ASSIGN)"]@ [ "TERM(NOT)"]@["indentBackwards"]@ $4 @[ "TERM(PERIOD)"]@["indentBackwards"]}
-  | predicate ASSIGN term IS arithmetic PERIOD{["indentForward"] @["RULE : "]@["\t"] @ $1 @ ["indentForward"] @ [ "TERM(ASSIGN)"]@[$3]@["indentBackwards"]@ ["TERM(IS)"]@ $5 @[ "TERM(PERIOD)"]@["indentBackwards"]}
+  | predicate ASSIGN term IS arithmetic PERIOD{["indentForward"] @["RULE : "]@["\t"] @ $1 @ ["indentForward"] @ [ "TERM(ASSIGN)"]@["indentForward"] @ ["ARITHMETIC"]@ ["indentForward"] @[$3]@ ["TERM(IS)"]@ $5 @["indentBackwards"]@["indentBackwards"]@["indentBackwards"]@[ "TERM(PERIOD)"]@["indentBackwards"]}
+  | predicate ASSIGN arithmetic PERIOD{["indentForward"] @["RULE : "]@["\t"] @ $1 @ ["indentForward"] @ [ "TERM(ASSIGN)"]@["indentForward"] @ ["ARITHMETIC"]@ ["indentForward"] @ $3 @["indentBackwards"]@["indentBackwards"]@["indentBackwards"]@[ "TERM(PERIOD)"]@["indentBackwards"]}
 
 arithmetic:
   | IDENTIFIER {["TERM(VARIABLE) : "^$1]}
   | CONSTANT {["TERM(CONSTANT) : "^$1]}
-  | NUMBER {["TERM(NUMBER)"^$1]}
-  | arithmetic OP arithmetic { $1 @ ["TERM(OP) :"^$2] @ $3 }
+  | NUMBER {["TERM(NUMBER) : "^$1]}
+  | arithmetic OP arithmetic { $1 @ ["TERM(OP) : "^$2] @ $3 }
   | LPAREN arithmetic RPAREN { ["TERM(LPAREN)"] @ $2 @ ["TERM(RPAREN)"] }
 
 query:
   | {[""]}
   | QUERY predicate PERIOD { ["indentForward"] @["QUERY: " ] @["\t"]@ $2 @ [ "TERM(PERIOD)"]@["indentBackwards"]}
+  | QUERY body PERIOD { ["indentForward"] @["QUERY: " ] @["\t"]@ $2 @ [ "TERM(PERIOD)"]@["indentBackwards"]}
 
 body:
   | predicate {$1}
@@ -63,3 +65,6 @@ arguments:
 term:
   | IDENTIFIER {"TERM(VARIABLE) : "^$1}
   | CONSTANT {"TERM(CONSTANT) : "^$1}
+  | NUMBER {"TERM(NUMBER) : "^$1}
+  | TRUE {"TERM(TRUE)"}
+  | FALSE {"TERM(FALSE)"}

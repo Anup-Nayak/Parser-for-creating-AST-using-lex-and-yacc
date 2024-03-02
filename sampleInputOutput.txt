@@ -1,0 +1,441 @@
+This is the output AST to the testcases mentioned in test.txt.
+
+PROGRAM : 
+    
+    CLAUSE : 
+    
+            QUERY: 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : parent
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : John
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Mary
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            FACT : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : parent
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : mother
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : as
+                        TERM(COMMA)
+                        TERM(CONSTANT) : yuck
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                TERM(NOT)
+                PREDICATE : 
+                    TERM(CONSTANT) : wife
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : hello
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            FACT : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : parent
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : adam
+                        TERM(COMMA)
+                        TERM(CONSTANT) : john
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            FACT : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : parent
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : eve
+                        TERM(COMMA)
+                        TERM(CONSTANT) : john
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            FACT : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : parent
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : john
+                        TERM(COMMA)
+                        TERM(CONSTANT) : alice
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : ancestor
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                    TERM(RPAREN)
+            TERM(ASSIGN)
+                PREDICATE : 
+                    TERM(CONSTANT) : parent
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : ancestor
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                    TERM(RPAREN)
+            TERM(ASSIGN)
+                PREDICATE : 
+                    TERM(CONSTANT) : parent
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Z
+                    TERM(RPAREN)
+            TERM(COMMA)
+                PREDICATE : 
+                    TERM(CONSTANT) : ancestor
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : Z
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            QUERY: 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : ancestor
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : adam
+                        TERM(COMMA)
+                        TERM(CONSTANT) : alice
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            QUERY: 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : ancestor
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(CONSTANT) : alice
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : likes
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : john
+                        TERM(COMMA)
+                        TERM(CONSTANT) : pizza
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                TERM(OFCOURSE)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            FACT : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : likes
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : john
+                        TERM(COMMA)
+                        TERM(CONSTANT) : spaghetti
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : sum
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Z
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                    ARITHMETIC
+                        TERM(NUMBER) : 48
+                        TERM(IS)
+                        TERM(CONSTANT) : pi
+                        TERM(OP) : +
+                        TERM(NUMBER) : 988
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            FACT : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : likes
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : john
+                        TERM(COMMA)
+                        TERM(CONSTANT) : spaghetti
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : likes
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : x
+                        TERM(COMMA)
+                        TERM(CONSTANT) : y
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                TERM(OFCOURSE)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : sum
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Z
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                    ARITHMETIC
+                        TERM(VARIABLE) : Z
+                        TERM(IS)
+                        TERM(VARIABLE) : X
+                        TERM(OP) : +
+                        TERM(VARIABLE) : Y
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : product
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Z
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                    ARITHMETIC
+                        TERM(VARIABLE) : Z
+                        TERM(IS)
+                        TERM(VARIABLE) : X
+                        TERM(OP) : *
+                        TERM(VARIABLE) : Y
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : difference
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Z
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                    ARITHMETIC
+                        TERM(VARIABLE) : Z
+                        TERM(IS)
+                        TERM(VARIABLE) : X
+                        TERM(OP) : -
+                        TERM(VARIABLE) : Y
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : quotient
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Z
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                    ARITHMETIC
+                        TERM(VARIABLE) : Z
+                        TERM(IS)
+                        TERM(VARIABLE) : X
+                        TERM(OP) : /
+                        TERM(VARIABLE) : Y
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            QUERY: 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : ancestor
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : adam
+                        TERM(COMMA)
+                        TERM(CONSTANT) : alice
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            QUERY: 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : sum
+                    TERM(LPAREN)
+                        TERM(NUMBER) : 5
+                        TERM(COMMA)
+                        TERM(NUMBER) : 7
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Result
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            QUERY: 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : product
+                    TERM(LPAREN)
+                        TERM(NUMBER) : 3
+                        TERM(COMMA)
+                        TERM(NUMBER) : 4
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Result
+                    TERM(RPAREN)
+            TERM(COMMA)
+                PREDICATE : 
+                    TERM(CONSTANT) : difference
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : Result
+                        TERM(COMMA)
+                        TERM(NUMBER) : 10
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Result2
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : notlikes
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : john
+                        TERM(COMMA)
+                        TERM(VARIABLE) : X
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                TERM(NOT)
+                PREDICATE : 
+                    TERM(CONSTANT) : likes
+                    TERM(LPAREN)
+                        TERM(CONSTANT) : john
+                        TERM(COMMA)
+                        TERM(VARIABLE) : X
+                    TERM(RPAREN)
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : greater_than
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                    ARITHMETIC
+                        TERM(VARIABLE) : X
+                        TERM(OP) : >
+                        TERM(VARIABLE) : Y
+            TERM(PERIOD)
+    
+    CLAUSE : 
+    
+            RULE : 
+            
+                PREDICATE : 
+                    TERM(CONSTANT) : smaller_than_or_equal
+                    TERM(LPAREN)
+                        TERM(VARIABLE) : X
+                        TERM(COMMA)
+                        TERM(VARIABLE) : Y
+                    TERM(RPAREN)
+                TERM(ASSIGN)
+                    ARITHMETIC
+                        TERM(VARIABLE) : X
+                        TERM(OP) : =<
+                        TERM(VARIABLE) : Y
+            TERM(PERIOD)

@@ -8,9 +8,10 @@ rule token = parse
     | "is" {IS}
     | "true" {TRUE}
     | "false" {FALSE}
-    | ['A'-'Z']+['a'-'z' 'A'-'Z' '0'-'9']* as str
+    | "fail" {FAIL}
+    | ['A'-'Z']+['a'-'z' 'A'-'Z' '0'-'9' '_']* as str
         { IDENTIFIER(str) }
-    | ['a'-'z']+['a'-'z' 'A'-'Z' '0'-'9']* as str
+    | ['a'-'z']+['a'-'z' 'A'-'Z' '0'-'9' '_']* as str
         { CONSTANT(str) }
     | '(' { LPAREN }
     | ')' { RPAREN }
@@ -24,5 +25,5 @@ rule token = parse
     | ['?']['-'] { QUERY }
     | '.' { PERIOD }
     | eof {EOF}
-    | ['+']+ as op { OP(op) }
+    | ['+' '/' '*' '-' '>' '<' '=']+ as op { OP(op) }
     | ['0'-'9']+ as num { NUMBER(num) }
